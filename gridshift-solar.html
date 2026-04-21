@@ -1,0 +1,1143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>GridShift Solar — Powering Your Future with Architectural Radiance</title>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+<style>
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+:root {
+  --navy: #1a1f56;
+  --navy-dark: #12153d;
+  --gold: #e8a020;
+  --gold-light: #f5b942;
+  --blue: #2546c4;
+  --blue-royal: #1e3faa;
+  --white: #ffffff;
+  --gray-50: #f8f9fa;
+  --gray-100: #f1f3f5;
+  --gray-200: #e9ecef;
+  --gray-300: #dee2e6;
+  --gray-400: #adb5bd;
+  --gray-600: #6c757d;
+  --gray-700: #495057;
+  --gray-800: #343a40;
+  --gray-900: #212529;
+  --shadow-sm: 0 1px 3px rgba(0,0,0,0.08);
+  --shadow-md: 0 4px 16px rgba(0,0,0,0.1);
+  --shadow-lg: 0 8px 32px rgba(0,0,0,0.12);
+  --shadow-xl: 0 16px 48px rgba(0,0,0,0.15);
+  --radius-sm: 8px;
+  --radius-md: 12px;
+  --radius-lg: 16px;
+  --radius-xl: 24px;
+  --transition: 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html { scroll-behavior: smooth; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  color: var(--gray-900);
+  background: var(--white);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+/* ─── NAVBAR ─── */
+.navbar {
+  position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+  background: rgba(255,255,255,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(0,0,0,0.06);
+  transition: var(--transition);
+}
+.navbar.scrolled { box-shadow: var(--shadow-md); }
+.nav-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; align-items: center; justify-content: space-between;
+  padding: 0 24px; height: 72px;
+}
+.nav-logo {
+  font-size: 1.25rem; font-weight: 800; color: var(--navy);
+  text-decoration: none; letter-spacing: -0.5px;
+}
+.nav-links { display: flex; gap: 32px; list-style: none; }
+.nav-links a {
+  text-decoration: none; color: var(--gray-700); font-size: 0.9rem;
+  font-weight: 500; position: relative; transition: var(--transition);
+}
+.nav-links a:hover, .nav-links a.active { color: var(--navy); }
+.nav-links a.active::after {
+  content: ''; position: absolute; bottom: -4px; left: 0; right: 0;
+  height: 2px; background: var(--navy); border-radius: 1px;
+}
+.nav-cta {
+  background: var(--gold); color: var(--white); border: none;
+  padding: 10px 24px; border-radius: 8px; font-weight: 600;
+  font-size: 0.9rem; cursor: pointer; transition: var(--transition);
+  text-decoration: none;
+}
+.nav-cta:hover { background: var(--gold-light); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+
+.hamburger { display: none; flex-direction: column; gap: 5px; cursor: pointer; background: none; border: none; padding: 4px; }
+.hamburger span { display: block; width: 24px; height: 2px; background: var(--navy); border-radius: 2px; transition: var(--transition); }
+
+/* ─── PAGES ─── */
+.page { display: none; }
+.page.active { display: block; }
+
+/* ─── CONTAINER ─── */
+.container { max-width: 1200px; margin: 0 auto; padding: 0 24px; }
+
+/* ─── HERO HOME ─── */
+.hero-home {
+  margin-top: 72px; padding: 40px 24px;
+}
+.hero-home-inner {
+  max-width: 1200px; margin: 0 auto;
+  border-radius: var(--radius-xl); overflow: hidden;
+  position: relative; min-height: 420px;
+  background: linear-gradient(135deg, var(--navy-dark) 0%, var(--navy) 50%, #2a3580 100%);
+  display: flex; align-items: center;
+}
+.hero-home-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=1400&q=80') center/cover;
+  opacity: 0.3;
+}
+.hero-home-content {
+  position: relative; z-index: 2; padding: 60px;
+  max-width: 600px;
+}
+.hero-home-content h1 {
+  font-size: 3rem; font-weight: 900; line-height: 1.1;
+  color: var(--white); margin-bottom: 20px; letter-spacing: -1px;
+}
+.hero-home-content h1 .highlight { color: var(--gold); }
+.hero-home-content p {
+  font-size: 1.05rem; color: rgba(255,255,255,0.85);
+  margin-bottom: 32px; line-height: 1.7; max-width: 480px;
+}
+.hero-btns { display: flex; gap: 16px; flex-wrap: wrap; }
+.btn-primary {
+  background: var(--gold); color: var(--white); border: none;
+  padding: 14px 32px; border-radius: var(--radius-sm); font-weight: 700;
+  font-size: 0.95rem; cursor: pointer; transition: var(--transition);
+  text-decoration: none; display: inline-flex; align-items: center; gap: 8px;
+}
+.btn-primary:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+.btn-secondary {
+  background: rgba(255,255,255,0.15); color: var(--white); border: 2px solid rgba(255,255,255,0.3);
+  padding: 12px 28px; border-radius: var(--radius-sm); font-weight: 600;
+  font-size: 0.95rem; cursor: pointer; transition: var(--transition);
+  text-decoration: none; backdrop-filter: blur(10px);
+}
+.btn-secondary:hover { background: rgba(255,255,255,0.25); border-color: rgba(255,255,255,0.5); }
+
+/* ─── SECTION HEADERS ─── */
+.section { padding: 100px 24px; }
+.section-alt { background: var(--gray-50); }
+.section-navy { background: var(--navy); color: var(--white); }
+.section-header { text-align: center; max-width: 640px; margin: 0 auto 60px; }
+.section-header h2 {
+  font-size: 2.25rem; font-weight: 800; letter-spacing: -0.5px;
+  margin-bottom: 16px; color: var(--gray-900);
+}
+.section-navy .section-header h2 { color: var(--white); }
+.section-header p { font-size: 1.05rem; color: var(--gray-600); line-height: 1.7; }
+.section-navy .section-header p { color: rgba(255,255,255,0.7); }
+
+/* ─── FEATURES GRID ─── */
+.features-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.feature-card {
+  background: var(--white); border-radius: var(--radius-lg);
+  padding: 36px 30px; border: 1px solid var(--gray-200);
+  transition: var(--transition); position: relative; overflow: hidden;
+}
+.feature-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); border-color: transparent; }
+.feature-icon {
+  width: 52px; height: 52px; border-radius: var(--radius-md);
+  display: flex; align-items: center; justify-content: center;
+  margin-bottom: 20px; font-size: 1.4rem;
+}
+.icon-blue { background: #e8eeff; color: var(--blue); }
+.icon-gold { background: #fff4e0; color: var(--gold); }
+.icon-green { background: #e6f7ee; color: #22a85a; }
+.icon-navy { background: #e8eaff; color: var(--navy); }
+.feature-card h3 { font-size: 1.15rem; font-weight: 700; margin-bottom: 12px; }
+.feature-card p { font-size: 0.92rem; color: var(--gray-600); line-height: 1.65; }
+.feature-card.wide { grid-column: span 2; display: grid; grid-template-columns: 1fr 1fr; gap: 30px; align-items: center; }
+.feature-card.accent {
+  background: var(--blue); color: var(--white); border-color: var(--blue);
+}
+.feature-card.accent p { color: rgba(255,255,255,0.85); }
+.warranty-badge {
+  display: flex; flex-direction: column; align-items: center; justify-content: center;
+  text-align: center; padding: 40px;
+}
+.warranty-badge .number { font-size: 3.5rem; font-weight: 900; line-height: 1; }
+.warranty-badge .unit { font-size: 1.5rem; font-weight: 700; }
+.warranty-badge .label { font-size: 0.8rem; letter-spacing: 2px; text-transform: uppercase; margin-top: 8px; font-weight: 600; }
+
+.tags { display: flex; gap: 10px; margin-top: 16px; flex-wrap: wrap; }
+.tag {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 6px 14px; border-radius: 20px; font-size: 0.8rem;
+  background: var(--gray-100); color: var(--gray-700); font-weight: 500;
+}
+
+/* ─── SERVICES PAGE ─── */
+.hero-page {
+  margin-top: 72px; position: relative;
+  min-height: 380px; display: flex; align-items: center;
+  background: linear-gradient(135deg, var(--navy-dark), var(--navy));
+  overflow: hidden;
+}
+.hero-page-bg {
+  position: absolute; inset: 0;
+  background: url('https://images.unsplash.com/photo-1509391366360-2e959784a276?w=1400&q=80') center/cover;
+  opacity: 0.2;
+}
+.hero-page-content {
+  position: relative; z-index: 2;
+  max-width: 1200px; margin: 0 auto; padding: 60px 24px;
+}
+.hero-page-content .badge {
+  display: inline-block; padding: 6px 16px; border-radius: 20px;
+  font-size: 0.78rem; font-weight: 600; margin-bottom: 20px;
+  background: rgba(232,160,32,0.2); color: var(--gold); border: 1px solid rgba(232,160,32,0.3);
+}
+.hero-page-content h1 {
+  font-size: 2.8rem; font-weight: 900; color: var(--white);
+  line-height: 1.15; max-width: 500px; letter-spacing: -1px;
+  margin-bottom: 20px;
+}
+.hero-page-content p {
+  font-size: 1.05rem; color: rgba(255,255,255,0.8);
+  max-width: 520px; line-height: 1.7;
+}
+
+.services-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px;
+}
+.service-card {
+  background: var(--white); border-radius: var(--radius-lg);
+  overflow: hidden; border: 1px solid var(--gray-200);
+  transition: var(--transition);
+}
+.service-card:hover { transform: translateY(-6px); box-shadow: var(--shadow-xl); }
+.service-card-img {
+  height: 200px; position: relative; overflow: hidden;
+  background: linear-gradient(135deg, var(--navy), #2a3580);
+}
+.service-card-img img {
+  width: 100%; height: 100%; object-fit: cover; opacity: 0.85;
+}
+.service-card-icon {
+  position: absolute; top: 16px; left: 16px;
+  width: 40px; height: 40px; border-radius: var(--radius-sm);
+  background: var(--navy); color: var(--white);
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1rem; box-shadow: var(--shadow-md);
+}
+.service-card-body { padding: 28px; }
+.service-card-body h3 { font-size: 1.2rem; font-weight: 700; margin-bottom: 10px; }
+.service-card-body p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.65; margin-bottom: 18px; }
+.link-arrow {
+  display: inline-flex; align-items: center; gap: 6px;
+  font-size: 0.9rem; font-weight: 600; color: var(--navy);
+  text-decoration: none; transition: var(--transition);
+}
+.link-arrow:hover { gap: 10px; color: var(--blue); }
+
+/* ─── ADVANTAGE SECTION ─── */
+.advantage { max-width: 1200px; margin: 0 auto; }
+.advantage-top { display: grid; grid-template-columns: 1fr 1fr; gap: 48px; align-items: start; margin-bottom: 28px; }
+.advantage-left .badge {
+  display: inline-block; padding: 6px 16px; border-radius: 20px;
+  font-size: 0.78rem; font-weight: 600; margin-bottom: 20px;
+  background: #fff4e0; color: #c48500; border: 1px solid #f5d98a;
+}
+.advantage-left h2 {
+  font-size: 2.25rem; font-weight: 900; line-height: 1.15;
+  letter-spacing: -0.5px; margin-bottom: 20px;
+}
+.advantage-left p { color: var(--gray-600); line-height: 1.7; font-size: 0.95rem; }
+.advantage-img {
+  margin-top: 28px; border-radius: var(--radius-lg); overflow: hidden; height: 220px;
+  background: linear-gradient(135deg, #1e3a8a 0%, #2546c4 40%, #3b6de0 100%);
+  position: relative;
+}
+.advantage-img img { width: 100%; height: 100%; object-fit: cover; }
+.advantage-card {
+  background: var(--gray-50); border-radius: var(--radius-lg);
+  padding: 32px; border: 1px solid var(--gray-200);
+}
+.advantage-card .feature-icon { margin-bottom: 16px; }
+.advantage-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+.advantage-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.65; }
+.advantage-bottom { display: grid; grid-template-columns: 1fr 1fr; gap: 28px; }
+.advantage-bottom .advantage-card { display: flex; gap: 20px; align-items: flex-start; }
+.advantage-bottom .advantage-card .feature-icon { margin-bottom: 0; flex-shrink: 0; }
+
+/* ─── RESIDENTIAL PAGE ─── */
+.hero-res {
+  margin-top: 72px; position: relative; overflow: hidden;
+  background: linear-gradient(160deg, #f0f4ff 0%, var(--white) 100%);
+  padding: 60px 24px 0;
+}
+.hero-res-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 40px; align-items: center;
+}
+.hero-res-content .badge {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 8px 18px; border-radius: 20px; font-size: 0.8rem; font-weight: 600;
+  background: #e6f7ee; color: #1a8b47; margin-bottom: 24px;
+}
+.hero-res-content h1 {
+  font-size: 2.8rem; font-weight: 900; line-height: 1.12;
+  letter-spacing: -1px; margin-bottom: 20px; color: var(--gray-900);
+}
+.hero-res-content p {
+  font-size: 1rem; color: var(--gray-600); line-height: 1.7;
+  margin-bottom: 32px; max-width: 480px;
+}
+.hero-res-image {
+  position: relative; border-radius: var(--radius-lg); overflow: hidden;
+  height: 360px;
+}
+.hero-res-image img { width: 100%; height: 100%; object-fit: cover; }
+.savings-badge {
+  position: absolute; bottom: 20px; right: 20px;
+  background: var(--white); border-radius: var(--radius-md);
+  padding: 12px 20px; box-shadow: var(--shadow-lg);
+  display: flex; align-items: center; gap: 10px;
+}
+.savings-dot { width: 10px; height: 10px; border-radius: 50%; background: #22a85a; }
+.savings-badge .label { font-size: 0.75rem; color: var(--gray-600); }
+.savings-badge .amount { font-size: 1.3rem; font-weight: 800; color: var(--gray-900); }
+.savings-badge .per { font-size: 0.75rem; color: var(--gray-400); }
+
+.benefits-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(2, 1fr); gap: 24px;
+}
+.benefit-card {
+  background: var(--gray-50); border-radius: var(--radius-lg);
+  padding: 32px; border: 1px solid var(--gray-200); transition: var(--transition);
+}
+.benefit-card:hover { transform: translateY(-3px); box-shadow: var(--shadow-md); }
+.benefit-card .feature-icon { margin-bottom: 16px; }
+.benefit-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+.benefit-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.65; }
+
+/* ─── PROCESS ─── */
+.process-grid {
+  max-width: 1000px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 24px;
+}
+.process-step { text-align: center; }
+.process-num {
+  width: 56px; height: 56px; border-radius: 50%; margin: 0 auto 20px;
+  display: flex; align-items: center; justify-content: center;
+  font-size: 1.2rem; font-weight: 800;
+  background: var(--navy); color: var(--white);
+}
+.process-step:nth-child(2) .process-num { background: var(--gray-200); color: var(--gray-700); }
+.process-step:nth-child(3) .process-num { background: var(--gray-200); color: var(--gray-700); }
+.process-step:nth-child(4) .process-num { background: var(--gray-200); color: var(--gray-700); }
+.process-step h3 { font-size: 1rem; font-weight: 700; margin-bottom: 8px; }
+.process-step p { font-size: 0.82rem; color: var(--gray-600); line-height: 1.6; }
+
+/* ─── TESTIMONIAL ─── */
+.testimonial {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+  border-radius: var(--radius-xl); overflow: hidden;
+  background: var(--navy);
+}
+.testimonial-content {
+  padding: 60px; display: flex; flex-direction: column; justify-content: center;
+}
+.quote-icon { font-size: 3rem; color: var(--gold); margin-bottom: 20px; line-height: 1; }
+.testimonial-content blockquote {
+  font-size: 1.25rem; color: var(--white); line-height: 1.6;
+  font-weight: 500; margin-bottom: 28px; font-style: italic;
+}
+.testimonial-author { color: var(--white); }
+.testimonial-author .name { font-weight: 700; font-size: 1rem; }
+.testimonial-author .role { font-size: 0.85rem; color: rgba(255,255,255,0.6); margin-top: 4px; }
+.testimonial-image { position: relative; min-height: 360px; }
+.testimonial-image img { width: 100%; height: 100%; object-fit: cover; }
+
+/* ─── CTA BANNER ─── */
+.cta-banner {
+  max-width: 1000px; margin: 0 auto; text-align: center;
+  background: var(--gray-50); border-radius: var(--radius-xl);
+  padding: 60px 40px; border: 1px solid var(--gray-200);
+}
+.cta-banner h2 { font-size: 2rem; font-weight: 800; margin-bottom: 14px; letter-spacing: -0.5px; }
+.cta-banner p { color: var(--gray-600); margin-bottom: 28px; font-size: 1rem; }
+.btn-cta {
+  background: var(--gold); color: var(--white); border: none;
+  padding: 16px 36px; border-radius: var(--radius-sm); font-weight: 700;
+  font-size: 1rem; cursor: pointer; transition: var(--transition);
+  text-decoration: none; display: inline-block;
+}
+.btn-cta:hover { background: var(--gold-light); transform: translateY(-2px); box-shadow: var(--shadow-lg); }
+
+/* ─── CONTACT PAGE ─── */
+.contact-hero {
+  margin-top: 72px; padding: 80px 24px 0;
+  background: var(--white);
+}
+.contact-hero h1 {
+  font-size: 2.6rem; font-weight: 900; letter-spacing: -1px;
+  line-height: 1.15; max-width: 600px;
+}
+.contact-hero h1 .highlight { color: var(--blue); }
+.contact-hero > p {
+  font-size: 1.05rem; color: var(--gray-600); margin-top: 16px;
+  max-width: 580px; line-height: 1.7;
+}
+
+.contact-grid {
+  max-width: 1200px; margin: 0 auto; padding-top: 50px;
+  display: grid; grid-template-columns: 1fr 1fr; gap: 48px;
+  align-items: start;
+}
+.contact-form {
+  background: var(--gray-50); border-radius: var(--radius-lg);
+  padding: 40px; border: 1px solid var(--gray-200);
+}
+.form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; margin-bottom: 16px; }
+.form-group { margin-bottom: 16px; }
+.form-group label { display: block; font-size: 0.85rem; font-weight: 600; margin-bottom: 6px; color: var(--gray-700); }
+.form-group input, .form-group select {
+  width: 100%; padding: 12px 16px; border: 1px solid var(--gray-300);
+  border-radius: var(--radius-sm); font-size: 0.9rem; font-family: inherit;
+  transition: var(--transition); background: var(--white);
+}
+.form-group input:focus, .form-group select:focus {
+  outline: none; border-color: var(--blue); box-shadow: 0 0 0 3px rgba(37,70,196,0.1);
+}
+.form-group input::placeholder { color: var(--gray-400); }
+.btn-submit {
+  width: 100%; padding: 16px; background: var(--navy); color: var(--white);
+  border: none; border-radius: var(--radius-sm); font-size: 1rem;
+  font-weight: 700; cursor: pointer; transition: var(--transition);
+  margin-top: 8px;
+}
+.btn-submit:hover { background: var(--navy-dark); transform: translateY(-1px); box-shadow: var(--shadow-md); }
+.form-secure {
+  display: flex; align-items: center; gap: 8px; justify-content: center;
+  margin-top: 14px; font-size: 0.8rem; color: var(--gray-600);
+}
+
+.contact-right {}
+.contact-map {
+  width: 100%; height: 240px; border-radius: var(--radius-lg); overflow: hidden;
+  background: var(--navy-dark); margin-bottom: 28px; position: relative;
+}
+.map-dots {
+  position: absolute; inset: 0;
+  background-image: radial-gradient(rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 20px 20px;
+}
+.map-pin {
+  position: absolute; top: 50%; left: 55%;
+  width: 12px; height: 12px; border-radius: 50%;
+  background: var(--gold); box-shadow: 0 0 0 4px rgba(232,160,32,0.3);
+}
+
+.direct-contact h3 { font-size: 1.3rem; font-weight: 700; margin-bottom: 24px; }
+.contact-item { display: flex; gap: 16px; margin-bottom: 24px; }
+.contact-item-icon {
+  width: 48px; height: 48px; border-radius: 50%; flex-shrink: 0;
+  display: flex; align-items: center; justify-content: center;
+  background: #e8eeff; color: var(--blue); font-size: 1.1rem;
+}
+.contact-item-body h4 { font-size: 0.9rem; font-weight: 700; margin-bottom: 4px; }
+.contact-item-body p { font-size: 0.88rem; color: var(--gray-600); line-height: 1.5; }
+
+/* ─── ABOUT PAGE ─── */
+.about-hero {
+  padding: 80px 24px 0;
+  max-width: 1200px; margin-left: auto; margin-right: auto;
+  margin-top: 72px;
+}
+.about-hero-inner {
+  display: grid; grid-template-columns: 1fr 1fr; gap: 60px;
+  align-items: center; padding-top: 60px;
+}
+.about-hero-content h1 {
+  font-size: 2.6rem; font-weight: 900; line-height: 1.12;
+  letter-spacing: -1px; margin-bottom: 20px;
+}
+.about-hero-content h1 .highlight { color: var(--blue); }
+.about-hero-content p { font-size: 1rem; color: var(--gray-600); line-height: 1.7; }
+.about-hero-image {
+  border-radius: var(--radius-xl); overflow: hidden; height: 380px;
+  background: linear-gradient(135deg, var(--navy), #2a3580);
+}
+.about-hero-image img { width: 100%; height: 100%; object-fit: cover; }
+
+.stats-row {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(4, 1fr); gap: 28px;
+}
+.stat-card {
+  text-align: center; padding: 32px 20px;
+  background: var(--white); border-radius: var(--radius-lg);
+  border: 1px solid var(--gray-200);
+}
+.stat-card .number { font-size: 2.5rem; font-weight: 900; color: var(--navy); }
+.stat-card .label { font-size: 0.85rem; color: var(--gray-600); margin-top: 4px; }
+
+.values-grid {
+  max-width: 1200px; margin: 0 auto;
+  display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px;
+}
+.value-card {
+  background: var(--white); border-radius: var(--radius-lg);
+  padding: 36px 28px; border: 1px solid var(--gray-200);
+  transition: var(--transition);
+}
+.value-card:hover { transform: translateY(-4px); box-shadow: var(--shadow-lg); }
+.value-card .feature-icon { margin-bottom: 18px; }
+.value-card h3 { font-size: 1.1rem; font-weight: 700; margin-bottom: 10px; }
+.value-card p { font-size: 0.9rem; color: var(--gray-600); line-height: 1.65; }
+
+/* ─── FOOTER ─── */
+footer {
+  background: var(--white); border-top: 1px solid var(--gray-200);
+  padding: 48px 24px;
+}
+.footer-inner {
+  max-width: 1200px; margin: 0 auto;
+  display: flex; justify-content: space-between; align-items: flex-start;
+  flex-wrap: wrap; gap: 40px;
+}
+.footer-brand .logo { font-size: 1.15rem; font-weight: 800; color: var(--navy); margin-bottom: 8px; }
+.footer-brand p { font-size: 0.82rem; color: var(--gray-600); max-width: 280px; }
+.footer-links h4 { font-size: 0.85rem; font-weight: 700; margin-bottom: 14px; color: var(--gray-800); }
+.footer-links a {
+  display: block; font-size: 0.85rem; color: var(--gray-600);
+  text-decoration: none; margin-bottom: 8px; transition: var(--transition);
+}
+.footer-links a:hover { color: var(--navy); }
+.footer-bottom {
+  max-width: 1200px; margin: 24px auto 0; padding-top: 24px;
+  border-top: 1px solid var(--gray-200);
+  display: flex; justify-content: space-between; align-items: center;
+  font-size: 0.8rem; color: var(--gray-600);
+}
+
+/* ─── ANIMATIONS ─── */
+.fade-up {
+  opacity: 0; transform: translateY(30px);
+  transition: opacity 0.6s ease, transform 0.6s ease;
+}
+.fade-up.visible { opacity: 1; transform: translateY(0); }
+.delay-1 { transition-delay: 0.1s; }
+.delay-2 { transition-delay: 0.2s; }
+.delay-3 { transition-delay: 0.3s; }
+.delay-4 { transition-delay: 0.4s; }
+
+/* ─── RESPONSIVE ─── */
+@media (max-width: 900px) {
+  .nav-links { display: none; }
+  .hamburger { display: flex; }
+  .nav-links.open {
+    display: flex; flex-direction: column; position: absolute;
+    top: 72px; left: 0; right: 0; background: var(--white);
+    padding: 24px; gap: 16px; box-shadow: var(--shadow-lg);
+    border-bottom: 1px solid var(--gray-200);
+  }
+  .hero-home-content h1 { font-size: 2.2rem; }
+  .hero-home-content { padding: 40px 30px; }
+  .features-grid, .services-grid, .values-grid { grid-template-columns: 1fr; }
+  .feature-card.wide { grid-column: span 1; grid-template-columns: 1fr; }
+  .benefits-grid { grid-template-columns: 1fr; }
+  .process-grid { grid-template-columns: repeat(2, 1fr); }
+  .advantage-top { grid-template-columns: 1fr; }
+  .advantage-bottom { grid-template-columns: 1fr; }
+  .contact-grid { grid-template-columns: 1fr; }
+  .hero-res-inner { grid-template-columns: 1fr; }
+  .hero-res-image { height: 240px; }
+  .testimonial { grid-template-columns: 1fr; }
+  .testimonial-image { min-height: 280px; }
+  .about-hero-inner { grid-template-columns: 1fr; }
+  .stats-row { grid-template-columns: repeat(2, 1fr); }
+  .footer-inner { flex-direction: column; }
+  .hero-page-content h1 { font-size: 2.2rem; }
+  .section { padding: 60px 24px; }
+}
+
+@media (max-width: 600px) {
+  .hero-home-content h1 { font-size: 1.8rem; }
+  .hero-btns { flex-direction: column; }
+  .process-grid { grid-template-columns: 1fr 1fr; }
+  .form-row { grid-template-columns: 1fr; }
+  .section-header h2 { font-size: 1.8rem; }
+  .contact-hero h1 { font-size: 2rem; }
+}
+</style>
+</head>
+<body>
+
+<!-- ═══════════ NAVBAR ═══════════ -->
+<nav class="navbar" id="navbar">
+  <div class="nav-inner">
+    <a href="#" class="nav-logo" onclick="showPage('home')">GridShift Solar</a>
+    <ul class="nav-links" id="navLinks">
+      <li><a href="#" class="active" data-page="home" onclick="showPage('home')">Home</a></li>
+      <li><a href="#" data-page="services" onclick="showPage('services')">Services</a></li>
+      <li><a href="#" data-page="residential" onclick="showPage('residential')">Residential</a></li>
+      <li><a href="#" data-page="about" onclick="showPage('about')">About</a></li>
+      <li><a href="#" data-page="contact" onclick="showPage('contact')">Contact</a></li>
+    </ul>
+    <a href="#" class="nav-cta" onclick="showPage('contact')">Get a Quote</a>
+    <button class="hamburger" onclick="toggleMenu()" aria-label="Menu">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</nav>
+
+<!-- ═══════════ HOME PAGE ═══════════ -->
+<div class="page active" id="page-home">
+
+  <!-- Hero -->
+  <section class="hero-home">
+    <div class="hero-home-inner">
+      <div class="hero-home-bg"></div>
+      <div class="hero-home-content fade-up">
+        <h1>Powering Your Future with <span class="highlight">Architectural Radiance</span></h1>
+        <p>Elevate your property's value and slash energy costs with meticulously engineered solar solutions designed for the modern landscape.</p>
+        <div class="hero-btns">
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Get a Quote</a>
+          <a href="#" class="btn-secondary" onclick="showPage('services')">Explore Projects</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Features -->
+  <section class="section section-alt">
+    <div class="section-header fade-up">
+      <h2>Engineered for Excellence</h2>
+      <p>We don't just install panels; we architect sustainable energy ecosystems tailored to your property's unique profile.</p>
+    </div>
+    <div class="features-grid">
+      <div class="feature-card fade-up delay-1">
+        <div class="feature-icon icon-green">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
+        </div>
+        <h3>Uncompromising Sustainability</h3>
+        <p>Reduce your carbon footprint significantly with high-efficiency monocrystalline panels designed for maximum energy yield even in low-light conditions.</p>
+      </div>
+      <div class="feature-card fade-up delay-2">
+        <div class="feature-icon icon-gold">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Compounding Cost Savings</h3>
+        <p>Lock in your energy rates and protect yourself from grid price volatility. Our systems are engineered to achieve ROI faster, turning an expense into a performing asset.</p>
+        <div class="tags">
+          <span class="tag">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><polyline points="23 6 13.5 15.5 8.5 10.5 1 18"/></svg>
+            Lower Utility Bills
+          </span>
+          <span class="tag">
+            <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 9l4 4L17 3"/></svg>
+            Increased Property Value
+          </span>
+        </div>
+      </div>
+      <div class="feature-card accent fade-up delay-3">
+        <div class="warranty-badge">
+          <div class="number">25<span class="unit">yr</span></div>
+          <div class="label">Comprehensive Warranty</div>
+        </div>
+      </div>
+      <div class="feature-card wide fade-up delay-2">
+        <div>
+          <div class="feature-icon icon-navy">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="3" width="18" height="18" rx="2"/><path d="M3 9h18M9 21V9"/></svg>
+          </div>
+          <h3>Architectural Reliability</h3>
+          <p>We reject the "slapped-on" look. Our installations are designed to integrate seamlessly with your roofline, built with marine-grade mounting hardware meant to withstand extreme weather for decades.</p>
+        </div>
+        <div style="border-radius: 12px; overflow: hidden; height: 180px;">
+          <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=600&q=80" alt="Solar panels" style="width:100%;height:100%;object-fit:cover;">
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- CTA -->
+  <section class="section">
+    <div class="cta-banner fade-up">
+      <h2>Ready to Capture the Sun?</h2>
+      <p>Take the first step towards clean, affordable energy. Get a customized, no-obligation quote today.</p>
+      <a href="#" class="btn-cta" onclick="showPage('contact')">Get Your Free Quote</a>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════ SERVICES PAGE ═══════════ -->
+<div class="page" id="page-services">
+  <div class="hero-page">
+    <div class="hero-page-bg"></div>
+    <div class="hero-page-content fade-up">
+      <h1>Energy tailored to your architecture.</h1>
+      <p>From bespoke residential installations to massive industrial grids, we engineer solar solutions that integrate seamlessly with your physical environment and energy demands.</p>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="services-grid">
+      <div class="service-card fade-up delay-1">
+        <div class="service-card-img">
+          <img src="https://images.unsplash.com/photo-1508514177221-188b1cf16e9d?w=600&q=80" alt="Residential Solar">
+          <div class="service-card-icon">
+            <svg width="18" height="18" fill="currentColor"><path d="M10 20v-6h4v6h5v-8h3L12 3 2 12h3v8z"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body">
+          <h3>Residential Solar</h3>
+          <p>Elegant, flush-mount systems designed to complement your home's architecture while significantly reducing your reliance on the grid.</p>
+          <a href="#" class="link-arrow" onclick="showPage('residential')">Learn More →</a>
+        </div>
+      </div>
+      <div class="service-card fade-up delay-2">
+        <div class="service-card-img">
+          <img src="https://images.unsplash.com/photo-1559302504-64aae6ca6b6d?w=600&q=80" alt="Commercial Systems">
+          <div class="service-card-icon">
+            <svg width="18" height="18" fill="currentColor"><rect x="2" y="4" width="14" height="12" rx="1"/><path d="M6 4V2h6v2"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body">
+          <h3>Commercial Systems</h3>
+          <p>Maximize ROI with robust solar arrays designed for corporate facilities. Offset operational costs and achieve corporate sustainability goals.</p>
+          <a href="#" class="link-arrow">Learn More →</a>
+        </div>
+      </div>
+      <div class="service-card fade-up delay-3">
+        <div class="service-card-img">
+          <img src="https://images.unsplash.com/photo-1531346878377-a5be20888e57?w=600&q=80" alt="Industrial Solutions">
+          <div class="service-card-icon">
+            <svg width="18" height="18" fill="currentColor"><path d="M3 21h18M5 21V7l7-4 7 4v14"/><path d="M9 21v-4h4v4"/></svg>
+          </div>
+        </div>
+        <div class="service-card-body">
+          <h3>Industrial Solutions</h3>
+          <p>Megawatt-scale energy production for heavy industry and utility applications. Engineered for maximum yield and unparalleled durability.</p>
+          <a href="#" class="link-arrow">Learn More →</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="advantage">
+      <div class="advantage-top">
+        <div class="advantage-left fade-up">
+          <span class="badge">The GridShift Advantage</span>
+          <h2>Engineered for performance, built for longevity.</h2>
+          <p>We don't just install panels; we architect energy systems. Our approach combines rigorous engineering standards with premium materials to ensure your system performs flawlessly for decades.</p>
+          <div class="advantage-img">
+            <img src="https://images.unsplash.com/photo-1509391366360-2e959784a276?w=700&q=80" alt="Solar panel installation">
+          </div>
+        </div>
+        <div class="advantage-card fade-up delay-2">
+          <div class="feature-icon icon-navy">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 2L2 7l10 5 10-5-10-5zM2 17l10 5 10-5M2 12l10 5 10-5"/></svg>
+          </div>
+          <h3>Architectural Integration</h3>
+          <p>Our designs respect your property's aesthetic. We utilize low-profile mounting hardware and all-black panels to create a sleek, integrated look that enhances rather than detracts from your architecture.</p>
+        </div>
+      </div>
+      <div class="advantage-bottom">
+        <div class="advantage-card fade-up delay-1">
+          <div class="feature-icon icon-blue" style="flex-shrink:0;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/><polyline points="22 4 12 14.01 9 11.01"/></svg>
+          </div>
+          <div>
+            <h3>Tier-1 Quality</h3>
+            <p>We source exclusively from Tier-1 manufacturers, guaranteeing higher efficiency rates and industry-leading performance warranties.</p>
+          </div>
+        </div>
+        <div class="advantage-card fade-up delay-2">
+          <div class="feature-icon icon-gold" style="flex-shrink:0;">
+            <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+          </div>
+          <div>
+            <h3>Lifetime Support</h3>
+            <p>From initial consultation to post-installation monitoring, our dedicated support team ensures your system operates at peak capacity.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════ RESIDENTIAL PAGE ═══════════ -->
+<div class="page" id="page-residential">
+  <section class="hero-res">
+    <div class="hero-res-inner">
+      <div class="hero-res-content fade-up">
+        <span class="badge">⚡ Power Your Home. Empower Your Future.</span>
+        <h1>Radiant Energy for the Modern Home.</h1>
+        <p>Transform your roof into a clean energy asset. Reduce your electricity bills, increase your property value, and make a tangible impact on the environment with GridShift's premium residential solar solutions.</p>
+        <div class="hero-btns">
+          <a href="#" class="btn-primary" onclick="showPage('contact')">Get Your Free Quote</a>
+          <a href="#" class="link-arrow" style="padding: 14px 0; color: var(--navy);">Calculate Savings →</a>
+        </div>
+      </div>
+      <div class="hero-res-image fade-up delay-2">
+        <img src="https://images.unsplash.com/photo-1558618666-fcd25c85f82e?w=600&q=80" alt="Solar home">
+        <div class="savings-badge">
+          <div class="savings-dot"></div>
+          <div>
+            <div class="label">Average Home Savings</div>
+            <div class="amount">$1,500<span class="per">/yr</span></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-header fade-up">
+      <h2>Why Go Solar with GridShift?</h2>
+      <p>Beyond just panels, we deliver an integrated energy ecosystem designed for long-term value and immediate impact.</p>
+    </div>
+    <div class="benefits-grid">
+      <div class="benefit-card fade-up delay-1">
+        <div class="feature-icon icon-blue">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 1v22M17 5H9.5a3.5 3.5 0 0 0 0 7h5a3.5 3.5 0 0 1 0 7H6"/></svg>
+        </div>
+        <h3>Slash Electricity Bills</h3>
+        <p>Generate your own power and drastically reduce or eliminate your monthly utility costs. Protect yourself against rising energy rates.</p>
+      </div>
+      <div class="benefit-card fade-up delay-2">
+        <div class="feature-icon icon-navy">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M3 3v18h18"/><path d="M7 16l4-8 4 4 4-8"/></svg>
+        </div>
+        <h3>Increase Home Value</h3>
+        <p>Homes equipped with solar energy systems have higher property values and sell faster than non-solar homes. It's a smart investment that pays dividends when you stay, and when you sell.</p>
+      </div>
+      <div class="benefit-card fade-up delay-3">
+        <div class="feature-icon icon-green">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+        </div>
+        <h3>Environmental Impact</h3>
+        <p>Reduce your carbon footprint significantly. By switching to clean, renewable solar power, you are directly contributing to a healthier planet for future generations.</p>
+      </div>
+      <div class="benefit-card fade-up delay-4">
+        <div class="feature-icon icon-gold">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M13 2L3 14h9l-1 8 10-12h-9l1-8z"/></svg>
+        </div>
+        <h3>Energy Independence</h3>
+        <p>Pair your solar panels with battery storage to keep the lights on during grid outages. Control your own power.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="section-header fade-up">
+      <h2>The Journey to Radiant Energy</h2>
+      <p>A streamlined, transparent process from your first consultation to the moment you flip the switch.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step fade-up delay-1">
+        <div class="process-num">1</div>
+        <h3>Consultation</h3>
+        <p>A free, no-pressure assessment of your home's solar potential and energy needs.</p>
+      </div>
+      <div class="process-step fade-up delay-2">
+        <div class="process-num">2</div>
+        <h3>Design</h3>
+        <p>Our engineers create a custom system tailored to your roof, maximizing efficiency and aesthetic appeal.</p>
+      </div>
+      <div class="process-step fade-up delay-3">
+        <div class="process-num">3</div>
+        <h3>Installation</h3>
+        <p>Professional, meticulous installation by our certified technicians, usually completed in 1-2 days.</p>
+      </div>
+      <div class="process-step fade-up delay-4">
+        <div class="process-num">4</div>
+        <h3>Activation</h3>
+        <p>We handle all inspections and grid connections. You flip the switch and start saving immediately.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="testimonial fade-up">
+      <div class="testimonial-content">
+        <div class="quote-icon">"</div>
+        <blockquote>"Switching to GridShift was seamless. The aesthetic of the panels is sleek, and seeing our electricity bill drop to near zero the first month was incredible. Highly recommend their professional team."</blockquote>
+        <div class="testimonial-author">
+          <div class="name">Sarah & James Mitchell</div>
+          <div class="role">Homeowners, Austin TX</div>
+        </div>
+      </div>
+      <div class="testimonial-image">
+        <img src="https://images.unsplash.com/photo-1559582798-678dfc71ccd8?w=600&q=80" alt="Happy homeowners">
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="cta-banner fade-up">
+      <h2>Ready to Capture the Sun?</h2>
+      <p>Take the first step towards clean, affordable energy for your home. Get a customized, no-obligation quote today.</p>
+      <a href="#" class="btn-cta" onclick="showPage('contact')">Get Your Free Quote</a>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════ ABOUT PAGE ═══════════ -->
+<div class="page" id="page-about">
+  <div class="about-hero">
+    <div class="about-hero-inner">
+      <div class="about-hero-content fade-up">
+        <h1>Powering a <span class="highlight">Sustainable Future</span>, One Roof at a Time.</h1>
+        <p>Founded in 2018, GridShift Solar was born from a simple belief: solar energy should be beautiful, accessible, and engineered to last. Our team of architects, engineers, and energy specialists work together to deliver systems that don't just generate power — they elevate the properties they serve.</p>
+      </div>
+      <div class="about-hero-image fade-up delay-2">
+        <img src="https://images.unsplash.com/photo-1497440001374-f26997328c1b?w=600&q=80" alt="Team at work">
+      </div>
+    </div>
+  </div>
+
+  <section class="section">
+    <div class="stats-row">
+      <div class="stat-card fade-up delay-1">
+        <div class="number">5,000+</div>
+        <div class="label">Installations Completed</div>
+      </div>
+      <div class="stat-card fade-up delay-2">
+        <div class="number">98%</div>
+        <div class="label">Customer Satisfaction</div>
+      </div>
+      <div class="stat-card fade-up delay-3">
+        <div class="number">45MW</div>
+        <div class="label">Total Capacity Deployed</div>
+      </div>
+      <div class="stat-card fade-up delay-4">
+        <div class="number">25yr</div>
+        <div class="label">Warranty Coverage</div>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="section-header fade-up">
+      <h2>Our Core Values</h2>
+      <p>The principles that guide every panel we place and every relationship we build.</p>
+    </div>
+    <div class="values-grid">
+      <div class="value-card fade-up delay-1">
+        <div class="feature-icon icon-blue">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s-8-4.5-8-11.8A8 8 0 0 1 12 2a8 8 0 0 1 8 8.2c0 7.3-8 11.8-8 11.8z"/></svg>
+        </div>
+        <h3>Integrity First</h3>
+        <p>Transparent pricing, honest assessments, and no high-pressure sales tactics. We earn trust through actions, not promises.</p>
+      </div>
+      <div class="value-card fade-up delay-2">
+        <div class="feature-icon icon-green">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 2v4m0 12v4M4.93 4.93l2.83 2.83m8.48 8.48l2.83 2.83M2 12h4m12 0h4M4.93 19.07l2.83-2.83m8.48-8.48l2.83-2.83"/></svg>
+        </div>
+        <h3>Innovation Driven</h3>
+        <p>We continuously adopt the latest in solar technology, ensuring our clients always have access to the most efficient and reliable systems available.</p>
+      </div>
+      <div class="value-card fade-up delay-3">
+        <div class="feature-icon icon-gold">
+          <svg width="24" height="24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg>
+        </div>
+        <h3>Community Focused</h3>
+        <p>We're invested in the communities we serve. From local hiring to educational outreach programs, we believe in powering change beyond the grid.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="cta-banner fade-up">
+      <h2>Join the GridShift Family</h2>
+      <p>Whether you're a homeowner, business, or developer — let's build something radiant together.</p>
+      <a href="#" class="btn-cta" onclick="showPage('contact')">Get in Touch</a>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════ CONTACT PAGE ═══════════ -->
+<div class="page" id="page-contact">
+  <div class="contact-hero container" style="margin-top: 72px; padding-top: 80px;">
+    <h1 class="fade-up">Power Your Future.<br><span class="highlight">Request a Free Quote.</span></h1>
+    <p class="fade-up delay-1" style="font-size: 1.05rem; color: var(--gray-600); margin-top: 16px; max-width: 580px; line-height: 1.7;">Transitioning to architectural radiance is a monumental step. Provide your details below, and our energy specialists will craft a customized solar assessment within 24 hours. Your privacy is paramount; we never share your data.</p>
+  </div>
+
+  <section class="section" style="padding-top: 50px;">
+    <div class="contact-grid" style="max-width: 1200px; margin: 0 auto;">
+      <div class="contact-form fade-up">
+        <div class="form-row">
+          <div class="form-group">
+            <label>First Name</label>
+            <input type="text" placeholder="Jane">
+          </div>
+          <div class="form-group">
+            <label>Last Name</label>
+            <input type="text" placeholder="Doe">
+          </div>
+        </div>
+        <div class="form-row">
+          <div class="form-group">
+            <label>Email Address</label>
+            <input type="email" placeholder="jane@example.com">
+          </div>
+          <div class="form-group">
+            <label>Phone Number</label>
+            <input type="tel" placeholder="(555) 123-4567">
+          </div>
+        </div>
+        <div class="form-group">
+          <label>Installation Address</label>
+          <input type="text" placeholder="123 Solar Way, Energy City, ST 12345">
+        </div>
+        <div class="form-group">
+          <label>Average Monthly Electric Bill</label>
+          <select>
+            <option>Select an estimate</option>
+            <option>Under $100</option>
+            <option>$100 - $200</option>
+            <option>$200 - $300</option>
+            <option>$300 - $500</option>
+            <option>$500+</option>
+          </select>
+        </div>
+        <button class="btn-submit">Request Solar Assessment</button>
+        <div class="form-secure">
+          <svg width="14" height="14" fill="none" stroke="currentColor" stroke-width="2"><rect x="3" y="7" width="8" height="6" rx="1"/><path d="M5 7V5a2 2 0 0 1 4 0v2"/></svg>
+          Your information is secured with enterprise-grade encryption.
+        </div>
+      </div>
+      <div class="contact-right fade-up delay-2">
+        <div class="contact-map">
+          <div class="map-dots"></div>
+          <div class="map-pin"></div>
+        </div>
+        <div class="direct-contact">
+          <h3>Direct Contact</h3>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            </div>
+            <div class="contact-item-body">
+              <h4>Headquarters</h4>
+              <p>4500 Radiance Boulevard<br>Suite 400<br>Austin, TX 78701</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+            </div>
+            <div class="contact-item-body">
+              <h4>Phone</h4>
+              <p>1-800-555-SOLA (7652)<br>Mon-Fri: 8am - 6pm CST</p>
+            </div>
+          </div>
+          <div class="contact-item">
+            <div class="contact-item-icon">
+              <svg width="20" height="20" fill="none" stroke="currentColor" stroke-width="2"><path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"/><polyline points="22,6 12,13 2,6"/></svg>
+            </div>
+            <div class="contact-item-body">
+              <h4>Email</h4>
+              <p>quotes@gridshiftsolar.com</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<footer>
+  <div class="footer-inner">
+    <div class="footer-brand">
+      <div class="logo">GridShift Solar</div>
+      <p>© 2024 GridShift Solar. Powering the future with architectural radiance.</p>
+    </div>
+    <div class="footer-links">
+      <h4>Company</h4>
+      <a href="#" onclick="showPage('about')">About Us</a>
+      <a href="#" onclick="showPage('services')">Services</a>
+      <a href="#" onclick="showPage('residential')">Residential</a>
+      <a href="#" onclick="showPage('contact')">Contact</a>
+    </div>
+    <div class="footer-links">
+      <h4>Legal</h4>
+      <a href="#">Privacy Policy</a>
+      <a href="#">Terms of Service</a>
+      <a href="#">Cookie Policy</a>
+      <a href="#">Sustainability Report</a>
+    </div>
+  </div>
+</footer>
+
+<script>
+// ─── Navigation ───
+function showPage(page) {
+  document.querySelectorAll('.page').forEach(p => p.classList.remove('active'));
+  document.getElementById('page-' + page).classList.add('active');
+  document.querySelectorAll('.nav-links a').forEach(a => {
+    a.classList.toggle('active', a.dataset.page === page);
+  });
+  window.scrollTo({ top: 0, behavior: 'smooth' });
+  document.getElementById('navLinks').classList.remove('open');
+  setTimeout(() => {
+    document.querySelectorAll('.page.active .fade-up').forEach(el => {
+      el.classList.remove('visible');
+      void el.offsetWidth;
+    });
+    observeAnimations();
+  }, 100);
+}
+
+function toggleMenu() {
+  document.getElementById('navLinks').classList.toggle('open');
+}
+
+// ─── Scroll effects ───
+window.addEventListener('scroll', () => {
+  document.getElementById('navbar').classList.toggle('scrolled', window.scrollY > 10);
+});
+
+// ─── Intersection Observer for animations ───
+function observeAnimations() {
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-up:not(.visible)').forEach(el => observer.observe(el));
+}
+
+document.addEventListener('DOMContentLoaded', observeAnimations);
+</script>
+
+</body>
+</html>
